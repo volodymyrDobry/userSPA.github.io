@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форми авторизації та реєстрації</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="block-wrapper navbar-content">
+        <div class="logo-container">
+            <span class="variant-text">variant 4</span>
+        </div>
+        <span class="log-out-button hidden">
+            Log out
+        </span>
+    </div>
+</nav>
+<main>
+    <div id="login-container" class="container">
+        <div class="tabs">
+            <button class="tab-button active" data-tab="login">Авторизація</button>
+            <button class="tab-button" data-tab="register">Реєстрація</button>
+        </div>
+
+        <div class="tab-content active" id="login">
+            <form id="loginForm" class="form" novalidate>
+                <h2>Увійти в акаунт</h2>
+
+                <div class="form-group">
+                    <label for="loginUsername">Ім'я користувача</label>
+                    <input type="text" id="loginUsername" name="username" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group password-container">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" name="password" required minlength="6">
+                    <i class="fas fa-eye password-toggle"></i>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group remember">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <label for="rememberMe">Запам'ятати мене</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Увійти</button>
+            </form>
+        </div>
+
+        <div class="tab-content" id="register">
+            <form id="registerForm" class="form" novalidate>
+                <h2>Створити акаунт</h2>
+
+                <div class="form-group">
+                    <label for="firstName">Ім'я*</label>
+                    <input type="text" id="firstName" name="firstName" required minlength="3" maxlength="15">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Прізвище*</label>
+                    <input type="text" id="lastName" name="lastName" required minlength="3" maxlength="15">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group password-container">
+                    <label for="password">Пароль*</label>
+                    <input type="password" id="password" name="password" required minlength="6">
+                    <i class="fas fa-eye password-toggle"></i>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group password-container">
+                    <label for="confirmPassword">Підтвердіть пароль*</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <i class="fas fa-eye password-toggle"></i>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон*</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+380XXXXXXXXX">
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDate">Дата народження*</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>Гендер*</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="sex" value="male" required>
+                        <label for="male">Чоловіча</label>
+                        <input type="radio" id="female" name="sex" value="female">
+                        <label for="female">Жіноча</label>
+                        <input type="radio" id="another" name="sex" value="another">
+                        <label for="another">Інша</label>
+                    </div>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Країна*</label>
+                    <select id="country" name="country" required>
+                        <option value="">Виберіть країну</option>
+                        <option value="Ukraine">Україна</option>
+                        <option value="Poland">Польща</option>
+                        <option value="Germany">Німеччина</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Місто*</label>
+                    <select id="city" name="city" required disabled>
+                        <option value="">Виберіть місто</option>
+                    </select>
+                    <span class="error-message"></span>
+                </div>
+
+                <button type="submit" class="submit-btn">Зареєструватися</button>
+            </form>
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <p>Успішно!</p>
+        </div>
+    </div>
+</main>
+<div id="toast-container"></div>
+
+<script src="public/js/controller.js"></script>
+<script src="public/js/login.js"></script>
+<script src="public/js/gallery.js"></script>
+</body>
+</html>
